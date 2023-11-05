@@ -1,9 +1,9 @@
 metadata:
     language: v1-beta
-    name: "Directoy Traversal"
+    name: "Directoy List"
     description: "Utilizando o parâmetro Range para quebrar o controle de acesso."
     author: "@Raf4br"
-    tags: "Directoy Traversal"
+    tags: "Directoy List"
 
 define:
     trackHeader = "Range"
