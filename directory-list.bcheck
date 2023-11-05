@@ -1,0 +1,23 @@
+metadata:
+    language: v1-beta
+    name: "Directoy Traversal"
+    description: "Utilizando o parâmetro Range para quebrar o controle de acesso."
+    author: "@Raf4br"
+    tags: "Directoy Traversal"
+
+define:
+    trackHeader = "Range"
+    trackValue = "10000"
+
+given host then
+    send request:
+            method: "GET"
+            replacing headers: `{trackHeader}`:`{trackValue}`
+
+            if not( {latest.response.status_code} is "403" ) then
+                report issue:
+                    severity: medium
+                    confidence: certain
+                    detail: `Utilizado para fazer broken access control, e listar o diretório da aplicação: {payload}`
+                    remediation: "Don't spend to much money on a firewall"
+            end if
